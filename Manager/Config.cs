@@ -26,6 +26,7 @@ namespace Manager
 
         //Config storage keys
         public static readonly string ConfigEnableRegistryEntryKey = "enable_registry_entry";
+        public static readonly string ConfigRedirectRegistryEntryKey = "redirect_registry_entry";
 
         public static readonly string ConfigIntervalKey = "update_interval";
         public static readonly string ConfigShowIconAlwaysKey = "show_icon_always";
@@ -35,6 +36,7 @@ namespace Manager
 
         //Config storage default values
         public static readonly bool ConfigDefaultEnableRegistryEntryValue = false;
+        public static readonly string ConfigDefaultRedirectRegistryEntryValue = "";
 
         public static readonly long ConfigDefaultIntervalValue = 2 * 60 * 1000;
         public static readonly bool ConfigDefaultShowIconAlwaysValue = true;

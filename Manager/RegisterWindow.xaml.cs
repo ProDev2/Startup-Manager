@@ -19,6 +19,8 @@ namespace Manager
     {
         private ConfigStorage ConfigStorage;
 
+        private string RedirectPath;
+
         public RegisterWindow()
         {
             //Initialize storages
@@ -27,8 +29,15 @@ namespace Manager
             //Initialize Window
             InitializeComponent();
 
+            //Setup values
+            RedirectPath = ConfigStorage.GetValue(Config.ConfigRedirectRegistryEntryKey, Config.ConfigDefaultRedirectRegistryEntryValue);
+            if (RedirectPath == null) RedirectPath = "";
+            RedirectPath = RedirectPath.Trim();
+
             //Setup elements
             TitleLabel.Content = Title;
+
+            RedirectPathTextBox.Text = RedirectPath;
 
             //Setup drag behavior
             ToolbarLayout.MouseDown += (object sender, MouseButtonEventArgs args) =>
@@ -48,6 +57,7 @@ namespace Manager
                 {
                     args.Handled = true;
 
+                    OnApply();
                     Close();
                 }
 
@@ -61,6 +71,8 @@ namespace Manager
             EnableButton.Click += (object sender, RoutedEventArgs args) =>
             {
                 if (ConfigStorage == null) return;
+
+                OnApply();
 
                 try
                 {
@@ -91,6 +103,7 @@ namespace Manager
 
             AcceptButton.Click += (object sender, RoutedEventArgs args) =>
             {
+                OnApply();
                 Close();
             };
 
@@ -127,6 +140,35 @@ namespace Manager
             }
 
             InfoTextBox.Text = info;
+        }
+
+        private void OnApply()
+        {
+            try
+            {
+                string newRedirectPath = RedirectPathTextBox.Text;
+                if (newRedirectPath == null) newRedirectPath = "";
+                newRedirectPath = newRedirectPath.Trim();
+
+                if (RedirectPath != null && !RedirectPath.Equals(newRedirectPath))
+                {
+                    RedirectPath = newRedirectPath;
+
+                    if (ConfigStorage != null)
+                        ConfigStorage.SetValue(Config.ConfigRedirectRegistryEntryKey, newRedirectPath);
+
+                    RegisterHelper.SetRedirectPath(newRedirectPath, false);
+                    if (ConfigStorage != null)
+                    {
+                        bool registryEntryEnabled = ConfigStorage.GetBool(Config.ConfigEnableRegistryEntryKey, Config.ConfigDefaultEnableRegistryEntryValue);
+                        if (registryEntryEnabled)
+                            RegisterHelper.PutEntry();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+            }
         }
     }
 }

@@ -12,6 +12,8 @@ namespace Manager
 {
     public static class RegisterHelper
     {
+        public static string RedirectPath;
+
         public static RegistryKey OpenPathKey(bool openReadonly)
         {
             try
@@ -256,6 +258,17 @@ namespace Manager
         {
             string path = FileHelper.GetPath();
 
+            try
+            {
+                if (RedirectPath != null && RedirectPath.Length > 0 && File.Exists(RedirectPath))
+                    path = RedirectPath;
+            } catch (Exception e)
+            {
+            }
+
+            if (path == null || path.Length <= 0 || !File.Exists(path))
+                path = FileHelper.GetPath();
+
             if (path == null || path.Length <= 0 || !File.Exists(path))
             {
                 try
@@ -278,6 +291,27 @@ namespace Manager
             {
                 return path;
             }
+        }
+
+        public static void SetRedirectPath(string redirectPath, bool update)
+        {
+            if (redirectPath == null || redirectPath.Length <= 0)
+                redirectPath = "";
+
+            string currentPath = GetCurrentPath();
+
+            RedirectPath = redirectPath;
+
+            bool changed = false;
+            try
+            {
+                changed = !currentPath.Equals(Path.GetFullPath(redirectPath));
+            } catch (Exception e)
+            {
+            }
+
+            if (changed && update)
+                PutEntry();
         }
     }
 }

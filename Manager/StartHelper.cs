@@ -48,6 +48,16 @@ namespace Manager
                 ConfigStorage configStorage = ConfigStorage.Global;
                 if (configStorage == null) return;
 
+                string redirectPath = configStorage.GetValue(Config.ConfigRedirectRegistryEntryKey, Config.ConfigDefaultRedirectRegistryEntryValue);
+                if (redirectPath != null)
+                    redirectPath = redirectPath.Trim();
+                if (redirectPath != null && redirectPath.Length > 0)
+                {
+                    string fullRedirectPath = FileHelper.GetByRelativePath(redirectPath);
+                    if (fullRedirectPath != null)
+                        RegisterHelper.SetRedirectPath(fullRedirectPath, false);
+                }
+
                 bool setRegistryEntry = configStorage.GetBool(Config.ConfigEnableRegistryEntryKey, Config.ConfigDefaultEnableRegistryEntryValue);
 
                 if (setRegistryEntry)

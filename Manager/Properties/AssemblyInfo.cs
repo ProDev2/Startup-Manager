@@ -8,7 +8,7 @@ using System.Windows;
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
 [assembly: AssemblyTitle("Manager")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("A startup helper for programs")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ProDev+")]
 [assembly: AssemblyProduct("Manager")]

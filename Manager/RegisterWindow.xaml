@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Manager"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Manager.ImportTaskWindow"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Manager.RegisterWindow"
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignPaper}"
-        Title="Select task" Height="539.123" Width="623.42" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True">
+        Title="Registry Manager" Height="221.548" Width="640.586" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -99,9 +99,8 @@
     <Border Style="{StaticResource Border}">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="4*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -109,7 +108,7 @@
                 <RowDefinition Height="45"/>
             </Grid.RowDefinitions>
 
-            <Grid x:Name="ToolbarLayout" Grid.ColumnSpan="3" Background="{StaticResource PrimaryHueMidBrush}">
+            <Grid x:Name="ToolbarLayout" Grid.ColumnSpan="2" Background="{StaticResource PrimaryHueMidBrush}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="70"/>
@@ -119,49 +118,35 @@
                         <materialDesign:PackIcon Kind="Close"/>
                     </Button>
                 </StackPanel>
-                <Label x:Name="TitleLabel" VerticalAlignment="Center" Margin="10,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Consolas"/>
+                <Label x:Name="TitleLabel" Content="" VerticalAlignment="Center" Margin="10,0" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" FontFamily="Consolas"/>
             </Grid>
 
-            <ProgressBar x:Name="LoadingProgressBar" Style="{StaticResource MaterialDesignCircularProgressBar}" Width="60" Height="60" IsIndeterminate="True" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
-
-            <ListBox 
-                x:Name="TaskListBox" 
-                HorizontalAlignment="Stretch" 
-                VerticalAlignment="Stretch"
-                Style="{StaticResource MaterialDesignListBox}" 
-                Grid.ColumnSpan="3" 
-                Grid.Row="1" 
-                VerticalContentAlignment="Stretch" 
-                HorizontalContentAlignment="Stretch">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Grid
-                            Margin="0,2"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Stretch">
-                            <Grid.RowDefinitions>
-                                <RowDefinition/>
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="3*" />
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="{Binding Name}" AllowDrop="True" FontFamily="Consolas" VerticalAlignment="Center" Padding="10" FontWeight="Bold" />
-                            <TextBlock Text="{Binding FilePath}" Grid.Column="1" AllowDrop="False" FontFamily="Consolas" VerticalAlignment="Center" Padding="10" />
-                        </Grid>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <Grid 
+                Grid.ColumnSpan="2" 
+                Grid.Row="1">
+                <TextBox x:Name="InfoTextBox" FontFamily="Consolas" Margin="10" IsReadOnly="True" BorderThickness="0" VerticalAlignment="Top" FontSize="14"/>
+            </Grid>
 
             <Grid 
-                Grid.ColumnSpan="3" 
-                Grid.Row="3">
+                Grid.ColumnSpan="2" 
+                Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="EnableButton" Content="Enable" VerticalAlignment="Center" Margin="5,0"/>
+                <Button x:Name="DisableButton" Content="Disable" VerticalAlignment="Center" Grid.Column="1" Margin="5,0"/>
+            </Grid>
+
+            <Grid 
+                Grid.ColumnSpan="2" 
+                Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition Width="85"/>
                     <ColumnDefinition Width="85"/>
                 </Grid.ColumnDefinitions>
-                <Button x:Name="DenyButton" Content="Cancel" VerticalAlignment="Center" Grid.Column="1" Margin="5,0"/>
                 <Button x:Name="AcceptButton" Content="Ok" VerticalAlignment="Center" Grid.Column="2" Margin="5,0"/>
             </Grid>
         </Grid>

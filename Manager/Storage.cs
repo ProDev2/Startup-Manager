@@ -59,6 +59,23 @@ namespace Manager
             }
         }
 
+        public bool ContainsKey(string key)
+        {
+            if (key == null) return false;
+
+            if (Map != null)
+            {
+                lock (Map)
+                {
+                    Load();
+
+                    return Map.ContainsKey(key);
+                }
+            }
+
+            return false;
+        }
+
         public void Put(string key, V value)
         {
             if (key == null) return;
@@ -84,7 +101,12 @@ namespace Manager
 
         public V Get(string key)
         {
-            if (key == null) return default(V);
+            return Get(key, default(V));
+        }
+
+        public V Get(string key, V defValue)
+        {
+            if (key == null) return defValue;
 
             if (Map != null)
             {
@@ -92,11 +114,14 @@ namespace Manager
                 {
                     Load();
 
-                    Map.TryGetValue(key, out V value);
-                    return value;
+                    if (Map.ContainsKey(key))
+                    {
+                        Map.TryGetValue(key, out V value);
+                        return value;
+                    }
                 }
             }
-            return default(V);
+            return defValue;
         }
 
         public void Remove(string key)

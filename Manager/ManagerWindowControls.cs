@@ -22,6 +22,7 @@ namespace Manager
         private void SetupControls()
         {
             //Setup elements
+            Title = Config.ApplicationName;
             TitleLabel.Content = Title;
 
             //Setup drag behavior
@@ -132,6 +133,30 @@ namespace Manager
                 }
             };
 
+            OpenRegistryManagerButton.Click += (object sender, RoutedEventArgs args) =>
+            {
+                try
+                {
+                    if (DialogWindow != null && DialogWindow.IsVisible)
+                    {
+                        DialogWindow.Close();
+                        DialogWindow = null;
+                    }
+
+                    RegisterWindow dialogWindow = new RegisterWindow();
+                    this.DialogWindow = dialogWindow;
+
+                    dialogWindow.Owner = this;
+                    dialogWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+                    dialogWindow.ShowDialog();
+                } catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            };
+
+            //Load
             UpdateList();
         }
 

@@ -44,6 +44,7 @@ namespace Manager
                 if (Title == null)
                     Title = "";
 
+                base.Title = Title;
                 if (TitleLabel != null)
                     TitleLabel.Content = Title;
             }

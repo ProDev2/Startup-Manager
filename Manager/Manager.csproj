@@ -119,6 +119,11 @@
       <DependentUpon>InputDialogWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="ManagerWindowControls.cs" />
+    <Compile Include="RegisterHelper.cs" />
+    <Compile Include="RegisterWindow.xaml.cs">
+      <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StartHelper.cs" />
     <Compile Include="Storage.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskStorage.cs" />
@@ -165,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegisterWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

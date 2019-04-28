@@ -25,39 +25,8 @@ namespace Manager
         {
         }
 
-        //Static access methods
-        public static long GetUpdateInterval()
-        {
-            long defaultInterval = Config.ConfigDefaultIntervalValue;
-            string stringDefaultInterval = defaultInterval.ToString();
-
-            string value = GetValue(Config.ConfigIntervalKey, stringDefaultInterval);
-            if (value == null) return default(long);
-
-            try
-            {
-                return long.Parse(value);
-            }
-            catch (Exception e)
-            {
-            }
-
-            try
-            {
-                return (long) int.Parse(value);
-            }
-            catch (Exception e)
-            {
-            }
-            return default(long);
-        }
-
-        public static void SetUpdateInterval(long updateInterval)
-        {
-            SetValue(Config.ConfigIntervalKey, updateInterval.ToString());
-        }
-
-        public static bool GetBool(string key, bool defValue)
+        //Access methods
+        public bool GetBool(string key, bool defValue)
         {
             string value = GetValue(key, defValue.ToString());
             if (value == null) return default(bool);
@@ -72,12 +41,12 @@ namespace Manager
             return default(bool);
         }
 
-        public static void SetBool(string key, bool value)
+        public void SetBool(string key, bool value)
         {
             SetValue(key, value.ToString());
         }
 
-        public static string GetValue(string key, string defValue)
+        public string GetValue(string key, string defValue)
         {
             string value = GetValue(key);
             if (value != null)
@@ -90,20 +59,52 @@ namespace Manager
             }
         }
 
-        public static string GetValue(string key)
+        public string GetValue(string key)
         {
-            ConfigStorage storage = ConfigStorage.Global;
-            if (storage == null) return default(String);
-
-            return storage.Get(key);
+            return Get(key);
         }
 
-        public static void SetValue(string key, string value)
+        public void SetValue(string key, string value)
+        {
+            Put(key, value);
+        }
+
+        //Static access methods
+        public static long GetUpdateInterval()
+        {
+            ConfigStorage storage = ConfigStorage.Global;
+            if (storage == null) return default(long);
+
+            long defaultInterval = Config.ConfigDefaultIntervalValue;
+            string stringDefaultInterval = defaultInterval.ToString();
+
+            string value = storage.GetValue(Config.ConfigIntervalKey, stringDefaultInterval);
+            if (value == null) return default(long);
+
+            try
+            {
+                return long.Parse(value);
+            }
+            catch (Exception e)
+            {
+            }
+
+            try
+            {
+                return (long)int.Parse(value);
+            }
+            catch (Exception e)
+            {
+            }
+            return default(long);
+        }
+
+        public static void SetUpdateInterval(long updateInterval)
         {
             ConfigStorage storage = ConfigStorage.Global;
             if (storage == null) return;
 
-            storage.Put(key, value);
+            storage.SetValue(Config.ConfigIntervalKey, updateInterval.ToString());
         }
     }
 }

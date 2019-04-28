@@ -24,6 +24,9 @@ namespace Manager
 
         public ManagerWindow()
         {
+            //Initialize
+            StartHelper.Initialize();
+
             //Initialize storages
             ConfigStorage = ConfigStorage.Global;
             TaskStorage = TaskStorage.Global;

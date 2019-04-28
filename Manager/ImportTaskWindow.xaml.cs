@@ -28,7 +28,6 @@ namespace Manager
         public event OnSelect OnSelectEvent;
 
         private Task Task;
-
         private Task.TaskListItem SelectedItem;
 
         private Thread TaskLoaderThread;
@@ -78,8 +77,9 @@ namespace Manager
             InitializeComponent();
 
             //Setup elements
-            DialogTask = task;
+            TitleLabel.Content = Title;
 
+            DialogTask = task;
             DialogSelectedItem = null;
 
             //Setup drag behavior
@@ -168,6 +168,7 @@ namespace Manager
                     Close();
             };
 
+            //Load
             UpdateList();
         }
 

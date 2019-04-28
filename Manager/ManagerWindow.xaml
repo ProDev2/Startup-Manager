@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-        Background="{DynamicResource MaterialDesignPaper}"
-        Title="Startup Manager" Height="450" Width="800" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True">
+        Background="{DynamicResource MaterialDesignPaper}" Height="450" Width="800" ShowInTaskbar="False" WindowStyle="None" AllowsTransparency="True" Title="ManagerWindow">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -158,7 +157,17 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        
+
+        <Grid 
+            Grid.ColumnSpan="2" 
+            Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="OpenRegistryManagerButton" Content="Open Registry Manager" VerticalAlignment="Center" Margin="5,0" Height="30"/>
+        </Grid>
+
         <Grid 
             Grid.ColumnSpan="2" 
             Grid.Row="2">
@@ -167,9 +176,8 @@
                 <ColumnDefinition Width="85"/>
                 <ColumnDefinition Width="85"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="RunButton" Content="Run all
-                    " Grid.Row="2" VerticalAlignment="Center" Grid.Column="1" Margin="5,0" Height="30"/>
-            <Button x:Name="AddTaskButton" Content="Add" Grid.Row="2" VerticalAlignment="Center" Grid.Column="2" Margin="5,0" Height="30"/>
+            <Button x:Name="RunButton" Content="Run all" VerticalAlignment="Center" Grid.Column="1" Margin="5,0" Height="30"/>
+            <Button x:Name="AddTaskButton" Content="Add" VerticalAlignment="Center" Grid.Column="2" Margin="5,0" Height="30"/>
         </Grid>
 
     </Grid>

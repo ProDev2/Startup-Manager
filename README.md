@@ -9,7 +9,7 @@ Download and run the latest version:
 After starting the program once there will be a config.txt file within the same folder.
 
 ## Important
-It is not recommanded to start the program twice. To close it right click the little notification item in your taskbar and hit 'Exit' 
+It is not recommended to start the program twice. To close it right click the little notification item in your taskbar and hit 'Exit' 
 (if that option in't disabled in the 'config.txt' file).
 
 ## Details

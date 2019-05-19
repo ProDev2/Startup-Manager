@@ -42,6 +42,10 @@ namespace Manager
 
         private static void InitializeRegistryEntry()
         {
+            //Initialize shortcut helper
+            ShortcutHelper shortcut = new ShortcutHelper();
+            RegisterHelper.shortcut = shortcut;
+
             //Initialize registry entry if needed
             try
             {

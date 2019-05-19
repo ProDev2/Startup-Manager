@@ -38,7 +38,7 @@ namespace Manager
         public static readonly bool ConfigDefaultEnableRegistryEntryValue = false;
         public static readonly string ConfigDefaultRedirectRegistryEntryValue = "";
 
-        public static readonly long ConfigDefaultIntervalValue = 2 * 60 * 1000;
+        public static readonly long ConfigDefaultIntervalValue = 1 * 60 * 1000;
         public static readonly bool ConfigDefaultShowIconAlwaysValue = true;
         public static readonly bool ConfigDefaultEnableGuiValue = true;
         public static readonly bool ConfigDefaultEnableBalloonTipValue = false;

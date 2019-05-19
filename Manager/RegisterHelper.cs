@@ -12,6 +12,8 @@ namespace Manager
 {
     public static class RegisterHelper
     {
+        public static ShortcutHelper shortcut;
+
         public static string RedirectPath;
 
         public static RegistryKey OpenPathKey(bool openReadonly)
@@ -279,6 +281,15 @@ namespace Manager
                 } catch (Exception e)
                 {
                 }
+            }
+
+            if (shortcut != null)
+            {
+                shortcut.SaveShortcut();
+
+                string shortcutPath = shortcut.GetPath();
+                if (shortcutPath != null && shortcutPath.Length > 0 && File.Exists(shortcutPath))
+                    path = shortcutPath;
             }
 
             if (path == null || path.Length <= 0 || !File.Exists(path))

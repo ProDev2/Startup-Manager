@@ -3,9 +3,7 @@ It's a simple program that forces other programs to run, even if they are closed
 
 ## Usage
 Download and run the latest version:
-```
 [Latest version](https://github.com/ProDev2/Startup-Manager/releases/latest)
-```
 
 ## Configuration
 After starting the program once there will be a config.txt file within the same folder.

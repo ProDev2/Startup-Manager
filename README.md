@@ -18,7 +18,7 @@ After starting the program once there will be a config.txt file within the same 
 > If you disable the exit option you have to force close the program via task manager
 
 ## Registry Manager
-By using the registry manager within the program you can add the program to the registry of your computer. By doing so the program will start on boot.
+By using the registry manager within the program you can add the program to the registry of your computer. By doing so the program will start on boot up.
 
 > If you move the program in your file system make sure to start the program once afterwards. This will ensure that the path in the registry is set to the right location.
 

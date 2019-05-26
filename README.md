@@ -10,6 +10,8 @@ Download and run the latest version:
 ## Configuration
 After starting the program once there will be a config.txt file within the same folder.
 
+![Config File](images/Startup-Manager_Config.png)
+
 ## Important
 It is not recommended to start the program twice. To close it right click the little notification item in your taskbar and hit 'Exit' 
 (if that option in't disabled in the 'config.txt' file).

@@ -31,6 +31,8 @@ To add a program to the list hit 'Add' in the bottom right corner of the Startup
 
 > When choosing a process from the list make sure that the program you're searching for is currently running.
 
+![Process / Task selector](images/Startup-Manager_Task_Chooser.png)
+
 ## Details
 #License Copyright (C) by Pascal Gerner
 ```

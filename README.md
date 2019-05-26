@@ -8,11 +8,14 @@ Download and run the latest version:
 [Latest version](https://github.com/ProDev2/Startup-Manager/releases/latest)
 
 ## Configuration
-After starting the program once there will be a config.txt file within the same folder.
+After starting the program once there will be a config.txt file within the same folder. 
+**Changes to this file will be applied on the next program start!**
 
 ![Config File](images/Startup-Manager_Config.png)
 
 > The 'update_interval' is set in milliseconds. (1 second = 1000 milliseconds)
+
+> If you disable the exit option you have to force close the program via task manager
 
 ## Important
 It is not recommended to start the program twice. To close it right click the little notification item in your taskbar and hit 'Exit' 

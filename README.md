@@ -1,6 +1,8 @@
 # Startup-Manager
 It's a simple program that forces other programs to run, even if they are closed
 
+![Main Window](images/Startup-Manager.png)
+
 ## Usage
 Download and run the latest version:
 [Latest version](https://github.com/ProDev2/Startup-Manager/releases/latest)

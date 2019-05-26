@@ -13,9 +13,9 @@ After starting the program once there will be a config.txt file within the same 
 
 ![Config File](images/Startup-Manager_Config.png)
 
-> The 'update_interval' is set in milliseconds. (1 second = 1000 milliseconds)
+> The 'update_interval' is set in milliseconds. (1 second = 1000 milliseconds).
 
-> If you disable the exit option you have to force close the program via task manager
+> If you disable the exit option you have to force close the program via task manager.
 
 ## Registry Manager
 By using the registry manager within the program you can add the program to the registry of your computer. By doing so the program will start on boot up.

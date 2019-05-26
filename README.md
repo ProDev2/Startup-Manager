@@ -26,7 +26,7 @@ By using the registry manager within the program you can add the program to the 
 It is not recommended to start the program twice. To close it right click the little notification item in your taskbar and hit 'Exit' 
 (if that option in't disabled in the 'config.txt' file).
 
-## Adding a program
+## Adding a new task
 To add a program to the list hit 'Add' in the bottom right corner of the Startup-Manager's main window. In the following dialog window you can choose a name for the new list entry. After clicking 'Ok' you can choose a process which should be started once in a while. You can also press 'Cancel' and fill in the empty fields ('<empty>') afterwards by clicking on them.
 
 > When choosing a process from the list make sure that the program you're searching for is currently running.
